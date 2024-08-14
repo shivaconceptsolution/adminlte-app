@@ -24,27 +24,14 @@
    </div>
    <div class="x_content">
      <br />
-     <form id="demo-form2" action="" method="post" data-parsley-validate class="form-horizontal form-label-left">
-     {% csrf_token %}
-       <div class="item form-group">
-         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Category Name <span class="required">*</span>
-         </label>
-         <div class="col-md-6 col-sm-6 ">
-           <input type="text" name="catname" required="required" class="form-control ">
-         </div>
-       </div>
-       
-       <div class="ln_solid"></div>
-       <div class="item form-group">
-         <div class="col-md-6 col-sm-6 offset-md-3">
-           <button class="btn btn-primary" type="button">Cancel</button>
-           <button class="btn btn-primary" type="reset">Reset</button>
-           <button type="submit" class="btn btn-success">Submit</button>
-         </div>
-       </div>
+      <h3>View Category List here</h3>
+      <table border="1" width="500">
+        <tr><th>Category Id</th><th>Category name</th><th>Operation</th></tr>
+        {% for item in data %}
 
-     </form>
-     {{key}}
+         <tr><td>{{item.id}}</td><td>{{item.catname}}</td><td><a href="editcategory?q={{item.id}}">Edit</a></td><td><a href="deletecategory?q={{item.id}}">Delete</a></td></tr>
+        {% endfor %}
+      </table>
    </div>
  </div>
 </div>
